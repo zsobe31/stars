@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2018 by zsobe31 (http://jsbin.com/popufuc/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>canvas-1</title>
+</head>
+<body>
+  <canvas id="myCanvas" width="450" height="300" style="border:1px solid #000000;"></canvas>
+
+<script id="jsbin-javascript">
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+
+function filledStar (x,y,a) {
+  ctx.translate(x/3*2+25, (y+75)/5);
+  ctx.beginPath();
+for (var i = 0; i<5; i++) {
+    ctx.lineTo(0, a/3);
+    ctx.translate(0, a/3);
+    ctx.rotate((Math.PI * 2 / 10));
+    ctx.lineTo(0, -a/3);
+    ctx.translate(0, -a/3);
+    ctx.rotate(-(Math.PI * 6 / 10));
+}
+ctx.lineTo(0, a/3);
+ctx.closePath();
+ctx.fillStyle ='orange';
+ctx.fill();
+ctx.stroke();
+}
+
+ctx.rotate((Math.PI * 1 / 10));
+
+
+filledStar(40,50,75);
+filledStar(130,120,100);
+filledStar(250,220,150);
+</script>
+</body>
+</html>
